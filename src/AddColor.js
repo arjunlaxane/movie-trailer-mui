@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { ColorBox } from './ColorBox';
 
-//---------------------------------color------
 export function AddColor() {
   // const [color, setColor] = useState('deepskyblue');
   const [color, setColor] = useState('color');

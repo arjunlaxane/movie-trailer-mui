@@ -1,10 +1,10 @@
 import { useNavigate, useParams } from 'react-router-dom';
 
 export function MovieDetails({ movieList }) {
-  console.log(useParams());
+  // console.log(useParams());
   const { movieid } = useParams();
-  console.log(movieid);
-  console.log(movieList[movieid]);
+  // console.log(movieid);
+  // console.log(movieList[movieid]);
   const movie = movieList[movieid];
   const styles = {
     color: movie.rating > 8 ? 'green' : 'red',

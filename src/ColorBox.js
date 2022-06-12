@@ -1,4 +1,5 @@
 export function ColorBox({ color }) {
+  // console.log(color);
   const styles = {
     backgroundColor: color,
     height: '25px',

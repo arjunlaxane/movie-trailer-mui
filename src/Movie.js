@@ -4,6 +4,7 @@ import { Counter } from './Counter';
 
 export function Movie({ movie, id }) {
   // console.log(movie);
+  // console.log(id);
   //conditional styling
   const styles = {
     color: movie.rating > 8 ? 'green' : 'red',

@@ -101,7 +101,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route
             path="/movie/:movieid"
-            element={<MovieDetails movieList={movieList} />}
+            element={<MovieDetails movieList={movieList} />} //prop
           />
           {/* this : makes id a variable......if u didn't give : then it will try to match word exactly id */}
           <Route path="/color-game" element={<AddColor />} />
