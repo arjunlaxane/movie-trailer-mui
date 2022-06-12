@@ -1,16 +1,12 @@
 import { useState } from 'react';
 import './App.css';
-import { Routes, Route, Link, Navigate, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { MovieDetails } from './MovieDetails';
 import { MovieList } from './MovieList';
 import { AddColor } from './AddColor';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import AddMovie from './AddMovie';
 function App() {
   const initial_Movie_List = [
@@ -95,18 +91,18 @@ function App() {
           <Button onClick={() => navigate('/')} color="inherit">
             Home
           </Button>
-        </Toolbar>
-        <Toolbar>
+          {/* </Toolbar> */}
+          {/* <Toolbar> */}
           <Button onClick={() => navigate('/movie')} color="inherit">
             Movies
           </Button>
-        </Toolbar>
-        <Toolbar>
+          {/* </Toolbar> */}
+          {/* <Toolbar> */}
           <Button onClick={() => navigate('movie/add-movie')} color="inherit">
             ADD MOVIE
           </Button>
-        </Toolbar>
-        <Toolbar>
+          {/* </Toolbar> */}
+          {/* <Toolbar> */}
           <Button onClick={() => navigate('/color-game')} color="inherit">
             COLOR GAME
           </Button>
@@ -116,7 +112,7 @@ function App() {
       {/* <nav> */}
       {/* <ul> */}
       {/* <li> */}
-      {/* do not anchor tag, page will reload */}
+      {/* do not use anchor tag, page will reload */}
       {/* <Link to="/">Home</Link> */}
       {/* </li> */}
       {/* <li> */}
@@ -129,7 +125,6 @@ function App() {
       {/* </nav> */}
 
       <section className="route-container">
-        {' '}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
@@ -142,15 +137,8 @@ function App() {
               <AddMovie movieList={movieList} setMovieList={setMovieList} />
             } //prop
           />
-          {/* this : makes id a variable......if u didn't give : then it will try to match word exactly id */}
+          {/* this : makes id a variable......if u didn't give : then it will try to match word exactly as id */}
           <Route path="/color-game" element={<AddColor />} />
-          <Route
-            path="/movie"
-            element={
-              <MovieList movieList={movieList} setMovieList={setMovieList} />
-            }
-          />
-
           <Route
             path="/movie"
             element={

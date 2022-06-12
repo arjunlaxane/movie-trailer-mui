@@ -4,9 +4,9 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 export function MovieDetails({ movieList }) {
   // console.log(useParams());
-  const { movieid } = useParams();
-  console.log(movieid);
-  console.log(movieList[movieid]);
+  const { movieid } = useParams(); //object destructuring
+  // console.log(movieid);
+  // console.log(movieList[movieid]);
   const movie = movieList[movieid];
   const styles = {
     color: movie.rating > 8 ? 'green' : 'red',
@@ -28,9 +28,9 @@ export function MovieDetails({ movieList }) {
 
       <div className="movie-detail-container">
         <div className="movie-specs">
-          <h2 className="movie-name">{movie.name}🎇🎈🎈🖼</h2>
+          <h2 className="movie-name">{movie.name}</h2>
           <p style={styles} className="movie-rating">
-            {movie.rating}
+            ⭐{movie.rating}
           </p>
         </div>
         <p className="movie-summary">{movie.summary}</p>
