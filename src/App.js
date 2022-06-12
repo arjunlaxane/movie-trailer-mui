@@ -1,10 +1,17 @@
 import { useState } from 'react';
 import './App.css';
-import { Routes, Route, Link, Navigate } from 'react-router-dom';
+import { Routes, Route, Link, Navigate, useNavigate } from 'react-router-dom';
 import { MovieDetails } from './MovieDetails';
 import { MovieList } from './MovieList';
 import { AddColor } from './AddColor';
-
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import AddMovie from './AddMovie';
 function App() {
   const initial_Movie_List = [
     {
@@ -79,47 +86,83 @@ function App() {
     },
   ];
   const [movieList, setMovieList] = useState(initial_Movie_List);
+
+  const navigate = useNavigate();
   return (
     <div className="App">
-      <>
-        <nav>
-          <ul>
-            <li>
-              {/* do not anchor tag, page will reload */}
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/color-game">Color game</Link>
-            </li>
-            <li>
-              <Link to="/movie">Movies</Link>
-            </li>
-          </ul>
-        </nav>
+      <AppBar position="static">
+        <Toolbar>
+          <Button onClick={() => navigate('/')} color="inherit">
+            Home
+          </Button>
+        </Toolbar>
+        <Toolbar>
+          <Button onClick={() => navigate('/movie')} color="inherit">
+            Movies
+          </Button>
+        </Toolbar>
+        <Toolbar>
+          <Button onClick={() => navigate('movie/add-movie')} color="inherit">
+            ADD MOVIE
+          </Button>
+        </Toolbar>
+        <Toolbar>
+          <Button onClick={() => navigate('/color-game')} color="inherit">
+            COLOR GAME
+          </Button>
+        </Toolbar>
+      </AppBar>
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route
-            path="/movie/:movieid"
-            element={<MovieDetails movieList={movieList} />} //prop
-          />
-          {/* this : makes id a variable......if u didn't give : then it will try to match word exactly id */}
-          <Route path="/color-game" element={<AddColor />} />
-          <Route
-            path="/movie"
-            element={
-              <MovieList movieList={movieList} setMovieList={setMovieList} />
-            }
-          />
+      {/* <nav> */}
+      {/* <ul> */}
+      {/* <li> */}
+      {/* do not anchor tag, page will reload */}
+      {/* <Link to="/">Home</Link> */}
+      {/* </li> */}
+      {/* <li> */}
+      {/* <Link to="/color-game">Color game</Link> */}
+      {/* </li> */}
+      {/* <li> */}
+      {/* <Link to="/movie">Movies</Link> */}
+      {/* </li> */}
+      {/* </ul> */}
+      {/* </nav> */}
 
-          {/* * mtches any path */}
-          <Route path="/404" element={<NotFound />} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/movie/:movieid"
+          element={<MovieDetails movieList={movieList} />} //prop
+        />
+        <Route
+          path="movie/add-movie"
+          element={
+            <AddMovie movieList={movieList} setMovieList={setMovieList} />
+          } //prop
+        />
+        {/* this : makes id a variable......if u didn't give : then it will try to match word exactly id */}
+        <Route path="/color-game" element={<AddColor />} />
+        <Route
+          path="/movie"
+          element={
+            <MovieList movieList={movieList} setMovieList={setMovieList} />
+          }
+        />
 
-          {/* old to new route */}
-          <Route path="/films" element={<Navigate replace to="/movie" />} />
-          <Route path="*" element={<Navigate replace to="/404" />} />
-        </Routes>
-      </>
+        <Route
+          path="/movie"
+          element={
+            <MovieList movieList={movieList} setMovieList={setMovieList} />
+          }
+        />
+
+        {/* * mtches any path */}
+        <Route path="/404" element={<NotFound />} />
+
+        {/* old to new route */}
+        <Route path="/films" element={<Navigate replace to="/movie" />} />
+        <Route path="*" element={<Navigate replace to="/404" />} />
+      </Routes>
     </div>
   );
 }
