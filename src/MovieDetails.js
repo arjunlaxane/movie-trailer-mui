@@ -1,10 +1,12 @@
 import { useNavigate, useParams } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 export function MovieDetails({ movieList }) {
   // console.log(useParams());
   const { movieid } = useParams();
-  // console.log(movieid);
-  // console.log(movieList[movieid]);
+  console.log(movieid);
+  console.log(movieList[movieid]);
   const movie = movieList[movieid];
   const styles = {
     color: movie.rating > 8 ? 'green' : 'red',
@@ -32,13 +34,22 @@ export function MovieDetails({ movieList }) {
           </p>
         </div>
         <p className="movie-summary">{movie.summary}</p>
-        <button
+        {/* <button
           onClick={() => {
             navigate(-1);
           }}
         >
           Back
-        </button>
+        </button> */}
+        <Button
+          onClick={() => {
+            navigate(-1);
+          }}
+          variant="outlined"
+          startIcon={<ArrowBackIosIcon />}
+        >
+          Back
+        </Button>
       </div>
     </div>
   );

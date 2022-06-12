@@ -12,7 +12,9 @@
   /* background-color: orange; */
   width: 340px;
 }
-
+.route-container {
+  padding: 16px;
+}
 .movie-poster {
   width: 100%;
   min-height: 500px;

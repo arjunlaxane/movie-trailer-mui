@@ -128,41 +128,44 @@ function App() {
       {/* </ul> */}
       {/* </nav> */}
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/movie/:movieid"
-          element={<MovieDetails movieList={movieList} />} //prop
-        />
-        <Route
-          path="movie/add-movie"
-          element={
-            <AddMovie movieList={movieList} setMovieList={setMovieList} />
-          } //prop
-        />
-        {/* this : makes id a variable......if u didn't give : then it will try to match word exactly id */}
-        <Route path="/color-game" element={<AddColor />} />
-        <Route
-          path="/movie"
-          element={
-            <MovieList movieList={movieList} setMovieList={setMovieList} />
-          }
-        />
+      <section className="route-container">
+        {' '}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/movie/:movieid"
+            element={<MovieDetails movieList={movieList} />} //prop
+          />
+          <Route
+            path="movie/add-movie"
+            element={
+              <AddMovie movieList={movieList} setMovieList={setMovieList} />
+            } //prop
+          />
+          {/* this : makes id a variable......if u didn't give : then it will try to match word exactly id */}
+          <Route path="/color-game" element={<AddColor />} />
+          <Route
+            path="/movie"
+            element={
+              <MovieList movieList={movieList} setMovieList={setMovieList} />
+            }
+          />
 
-        <Route
-          path="/movie"
-          element={
-            <MovieList movieList={movieList} setMovieList={setMovieList} />
-          }
-        />
+          <Route
+            path="/movie"
+            element={
+              <MovieList movieList={movieList} setMovieList={setMovieList} />
+            }
+          />
 
-        {/* * mtches any path */}
-        <Route path="/404" element={<NotFound />} />
+          {/* * mtches any path */}
+          <Route path="/404" element={<NotFound />} />
 
-        {/* old to new route */}
-        <Route path="/films" element={<Navigate replace to="/movie" />} />
-        <Route path="*" element={<Navigate replace to="/404" />} />
-      </Routes>
+          {/* old to new route */}
+          <Route path="/films" element={<Navigate replace to="/movie" />} />
+          <Route path="*" element={<Navigate replace to="/404" />} />
+        </Routes>
+      </section>
     </div>
   );
 }
