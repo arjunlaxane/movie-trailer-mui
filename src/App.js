@@ -1,3 +1,5 @@
+import Paper from '@mui/material/Paper';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { useState } from 'react';
 import './App.css';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
@@ -8,6 +10,9 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import AddMovie from './AddMovie';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+
 function App() {
   const initial_Movie_List = [
     {
@@ -82,79 +87,112 @@ function App() {
     },
   ];
   const [movieList, setMovieList] = useState(initial_Movie_List);
-
   const navigate = useNavigate();
+  const [mode, setMode] = useState('dark');
+
+  const theme = createTheme({
+    palette: {
+      mode: mode,
+    },
+  });
+
   return (
-    <div className="App">
-      <AppBar position="static">
-        <Toolbar>
-          <Button onClick={() => navigate('/')} color="inherit">
-            Home
-          </Button>
-          {/* </Toolbar> */}
-          {/* <Toolbar> */}
-          <Button onClick={() => navigate('/movie')} color="inherit">
-            Movies
-          </Button>
-          {/* </Toolbar> */}
-          {/* <Toolbar> */}
-          <Button onClick={() => navigate('movie/add-movie')} color="inherit">
-            ADD MOVIE
-          </Button>
-          {/* </Toolbar> */}
-          {/* <Toolbar> */}
-          <Button onClick={() => navigate('/color-game')} color="inherit">
-            COLOR GAME
-          </Button>
-        </Toolbar>
-      </AppBar>
+    <ThemeProvider theme={theme}>
+      <Paper elevation={4} style={{ minHeight: '100vh', borderRadius: '0px' }}>
+        <div className="App">
+          <AppBar position="static">
+            <Toolbar>
+              <Button onClick={() => navigate('/')} color="inherit">
+                Home
+              </Button>
+              {/* </Toolbar> */}
+              {/* <Toolbar> */}
+              <Button onClick={() => navigate('/movie')} color="inherit">
+                Movies
+              </Button>
+              {/* </Toolbar> */}
+              {/* <Toolbar> */}
+              <Button
+                onClick={() => navigate('movie/add-movie')}
+                color="inherit"
+              >
+                ADD MOVIE
+              </Button>
 
-      {/* <nav> */}
-      {/* <ul> */}
-      {/* <li> */}
-      {/* do not use anchor tag, page will reload */}
-      {/* <Link to="/">Home</Link> */}
-      {/* </li> */}
-      {/* <li> */}
-      {/* <Link to="/color-game">Color game</Link> */}
-      {/* </li> */}
-      {/* <li> */}
-      {/* <Link to="/movie">Movies</Link> */}
-      {/* </li> */}
-      {/* </ul> */}
-      {/* </nav> */}
+              {/* </Toolbar> */}
+              {/* <Toolbar> */}
+              <Button onClick={() => navigate('/color-game')} color="inherit">
+                COLOR GAME
+              </Button>
+              <Button onClick={() => navigate('/tic-tac-toe')} color="inherit">
+                TIC-TAC-TOE
+              </Button>
+              <Button
+                onClick={() => setMode(mode === 'light' ? 'dark' : 'light')}
+                color="inherit"
+                startIcon={
+                  mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />
+                }
+              >
+                {mode === 'light' ? 'dark' : 'light'} mode
+              </Button>
+            </Toolbar>
+          </AppBar>
 
-      <section className="route-container">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route
-            path="/movie/:movieid"
-            element={<MovieDetails movieList={movieList} />} //prop
-          />
-          <Route
-            path="movie/add-movie"
-            element={
-              <AddMovie movieList={movieList} setMovieList={setMovieList} />
-            } //prop
-          />
-          {/* this : makes id a variable......if u didn't give : then it will try to match word exactly as id */}
-          <Route path="/color-game" element={<AddColor />} />
-          <Route
-            path="/movie"
-            element={
-              <MovieList movieList={movieList} setMovieList={setMovieList} />
-            }
-          />
+          {/* <nav> */}
+          {/* <ul> */}
+          {/* <li> */}
+          {/* do not use anchor tag, page will reload */}
+          {/* <Link to="/">Home</Link> */}
+          {/* </li> */}
+          {/* <li> */}
+          {/* <Link to="/color-game">Color game</Link> */}
+          {/* </li> */}
+          {/* <li> */}
+          {/* <Link to="/movie">Movies</Link> */}
+          {/* </li> */}
+          {/* </ul> */}
+          {/* </nav> */}
 
-          {/* * mtches any path */}
-          <Route path="/404" element={<NotFound />} />
+          <section className="route-container">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route
+                path="/movie/:movieid"
+                element={<MovieDetails movieList={movieList} />} //prop
+              />
+              <Route
+                path="movie/add-movie"
+                element={
+                  <AddMovie movieList={movieList} setMovieList={setMovieList} />
+                } //prop
+              />
+              {/* this : makes id a variable......if u didn't give : then it will try to match word exactly as id */}
+              <Route path="/color-game" element={<AddColor />} />
 
-          {/* old to new route */}
-          <Route path="/films" element={<Navigate replace to="/movie" />} />
-          <Route path="*" element={<Navigate replace to="/404" />} />
-        </Routes>
-      </section>
-    </div>
+              <Route path="/tic-tac-toe" element={<TicTacToe />} />
+
+              <Route
+                path="/movie"
+                element={
+                  <MovieList
+                    movieList={movieList}
+                    setMovieList={setMovieList}
+                  />
+                }
+              />
+
+              {/* * mtches any path */}
+              <Route path="/404" element={<NotFound />} />
+
+              {/* old to new route */}
+              <Route path="/films" element={<Navigate replace to="/movie" />} />
+              <Route path="*" element={<Navigate replace to="/404" />} />
+            </Routes>
+          </section>
+        </div>
+      </Paper>
+    </ThemeProvider>
   );
 }
 
@@ -171,3 +209,40 @@ function NotFound() {
   );
 }
 export default App;
+
+function TicTacToe() {
+  return (
+    <div>
+      <h1>Welcome to Tic Tac Toe💪</h1>
+      <Board />
+    </div>
+  );
+}
+
+function Board() {
+  return (
+    <div className="board">
+      <GameBox />
+      <GameBox />
+      <GameBox />
+      <GameBox />
+      <GameBox />
+      <GameBox />
+      <GameBox />
+      <GameBox />
+      <GameBox />
+    </div>
+  );
+}
+
+function GameBox() {
+  const val = 'X';
+  const styles = {
+    color: val === 'X' ? 'green' : 'red',
+  };
+  return (
+    <div style={styles} className="game-box">
+      {val}
+    </div>
+  );
+}

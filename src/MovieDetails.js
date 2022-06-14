@@ -18,12 +18,12 @@ export function MovieDetails({ movieList }) {
     <div>
       <iframe
         width="100%"
-        height="550"
+        height="550px"
         src={movie.trailer}
         title="YouTube video player"
-        frameborder="0"
+        frameBorder="1"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
+        allowFullscreen
       ></iframe>
 
       <div className="movie-detail-container">

@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import InfoIcon from '@mui/icons-material/Info';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
-import MailIcon from '@mui/icons-material/Mail';
+
 //counter------//
 // import { useState } from 'react'; should be at top
 //hook- it is a function, that make react listen to change. This function uses prefix use e.g useState
@@ -18,13 +17,18 @@ export function Counter() {
 
   return (
     <div>
-      <IconButton color="primary" aria-label="like">
-        <Badge onClick={increamentLike} badgeContent={Like} color="primary">
+      <IconButton onClick={increamentLike} color="primary" aria-label="like">
+        <Badge badgeContent={Like} color="primary">
           👍
         </Badge>
       </IconButton>
-      <IconButton color="error" aria-label="Dislike">
-        <Badge onClick={increamentDisLike} badgeContent={disLike} color="error">
+
+      <IconButton
+        onClick={increamentDisLike}
+        color="error"
+        aria-label="Dislike"
+      >
+        <Badge badgeContent={disLike} color="error">
           👎
         </Badge>
       </IconButton>

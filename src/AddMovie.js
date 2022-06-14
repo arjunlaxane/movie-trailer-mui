@@ -1,3 +1,5 @@
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 import { useState } from 'react';
 
 export default function AddMovie({ movieList, setMovieList }) {
@@ -19,37 +21,57 @@ export default function AddMovie({ movieList, setMovieList }) {
 
   return (
     <div className="add-movie-form">
-      <input
+      <TextField
         onChange={event => {
           setName(event.target.value);
         }}
-        placeholder="Name"
+        id="standard-basic"
+        label="Name"
+        variant="standard"
       />
-      <input
+
+      {/* <input
         onChange={event => {
           setPoster(event.target.value);
         }}
         placeholder="Poster"
+      /> */}
+      <TextField
+        onChange={event => {
+          setPoster(event.target.value);
+        }}
+        id="standard-basic"
+        label="Poster"
+        variant="standard"
       />
-      <input
+
+      <TextField
         onChange={event => {
           setRating(event.target.value);
         }}
-        placeholder="Rating"
+        id="standard-basic"
+        label="Rating"
+        variant="standard"
       />
-      <input
+
+      <TextField
         onChange={event => {
           setSummary(event.target.value);
         }}
-        placeholder="Summary"
+        id="standard-basic"
+        label="Summary"
+        variant="standard"
       />
 
       {/* <p>name:{name}</p> */}
       {/* <p>poster:{poster}</p> */}
       {/* <p>rating:{rating}</p> */}
       {/* <p>summary:{summary}</p> */}
+      <Button onClick={AddMovies} variant="outlined">
+        Add Movie
+      </Button>
 
-      <button onClick={AddMovies}>Add Movie</button>
+      {/* <button onClick={AddMovies}>Add Movie</button> */}
     </div>
   );
 }

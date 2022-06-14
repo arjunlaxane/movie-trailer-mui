@@ -96,3 +96,22 @@
   gap: 15px;
   padding: 24px;
 }
+
+.game-box {
+  height: 160px;
+  /* width: 160px; */
+  background-color: white;
+  color: black;
+  font-size: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+}
+
+.board {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  grid-template-columns: repeat(3, auto);
+  max-width: 800px;
+}
