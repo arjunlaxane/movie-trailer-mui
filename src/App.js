@@ -220,8 +220,35 @@ function TicTacToe() {
 }
 
 function Board() {
+  const [board, setBoard] = useState([
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+  ]);
+  const [isXTurn, setIsXTurn] = useState(true);
+
+  const handleClick = index => {
+    console.log(index);
+    // if (board[index] === null) {
+    if (!board[index]) {
+      const boardCopy = [...board];
+      // boardCopy[index] = 'X';
+      boardCopy[index] = isXTurn ? 'X' : 'O';
+      setIsXTurn(!isXTurn);
+      //changing turn
+      setBoard(boardCopy);
+    }
+  };
+
   return (
     <div className="board">
+      {/* <GameBox />
       <GameBox />
       <GameBox />
       <GameBox />
@@ -229,19 +256,25 @@ function Board() {
       <GameBox />
       <GameBox />
       <GameBox />
-      <GameBox />
-      <GameBox />
+      <GameBox /> */}
+
+      {board.map((val, index) => (
+        <GameBox val={val} onPlayerClick={() => handleClick(index)} />
+      ))}
     </div>
   );
 }
 
-function GameBox() {
-  const val = 'X';
+function GameBox({ val, onPlayerClick }) {
+  // const val = 'X';
+
+  // const [val, setVal] = useState('');
+
   const styles = {
     color: val === 'X' ? 'green' : 'red',
   };
   return (
-    <div style={styles} className="game-box">
+    <div style={styles} onClick={onPlayerClick} className="game-box">
       {val}
     </div>
   );
