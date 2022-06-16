@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import AddMovie from './AddMovie';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { TicTacToe } from './TicTacToe';
 
 function App() {
   const initial_Movie_List = [
@@ -209,73 +210,3 @@ function NotFound() {
   );
 }
 export default App;
-
-function TicTacToe() {
-  return (
-    <div>
-      <h1>Welcome to Tic Tac Toe💪</h1>
-      <Board />
-    </div>
-  );
-}
-
-function Board() {
-  const [board, setBoard] = useState([
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-  ]);
-  const [isXTurn, setIsXTurn] = useState(true);
-
-  const handleClick = index => {
-    console.log(index);
-    // if (board[index] === null) {
-    if (!board[index]) {
-      const boardCopy = [...board];
-      // boardCopy[index] = 'X';
-      boardCopy[index] = isXTurn ? 'X' : 'O';
-      setIsXTurn(!isXTurn);
-      //changing turn
-      setBoard(boardCopy);
-    }
-  };
-
-  return (
-    <div className="board">
-      {/* <GameBox />
-      <GameBox />
-      <GameBox />
-      <GameBox />
-      <GameBox />
-      <GameBox />
-      <GameBox />
-      <GameBox />
-      <GameBox /> */}
-
-      {board.map((val, index) => (
-        <GameBox val={val} onPlayerClick={() => handleClick(index)} />
-      ))}
-    </div>
-  );
-}
-
-function GameBox({ val, onPlayerClick }) {
-  // const val = 'X';
-
-  // const [val, setVal] = useState('');
-
-  const styles = {
-    color: val === 'X' ? 'green' : 'red',
-  };
-  return (
-    <div style={styles} onClick={onPlayerClick} className="game-box">
-      {val}
-    </div>
-  );
-}

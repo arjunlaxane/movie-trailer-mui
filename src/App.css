@@ -99,10 +99,10 @@
 
 .game-box {
   height: 160px;
-  /* width: 160px; */
+  width: 160px;
   background-color: white;
   color: black;
-  font-size: 170px;
+  font-size: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -117,6 +117,34 @@
   display: grid;
   /* grid-template-columns: 1fr 1fr 1fr; */
   grid-template-columns: repeat(3, auto);
-  max-width: 800px;
+  /* max-width: 480px; */
   cursor: pointer;
+  justify-content: center;
+}
+.tic-tac-toe-title {
+  text-align: center;
+  margin: 5px auto;
+}
+.winner-title {
+  text-align: center;
+}
+.output {
+  font-size: 120px;
+}
+.main-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.tic-tac-toe-msg {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.restart {
+  width: 200px;
+  margin: 20px auto;
+}
+.restart-container {
+  text-align: center;
+  margin-top: 20px;
 }
