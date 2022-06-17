@@ -15,7 +15,7 @@ import CardContent from '@mui/material/CardContent';
 // import Typography from '@mui/material/Typography';
 // import Stack from '@mui/material/Stack';
 
-export function Movie({ movie, id }) {
+export function Movie({ movie, id, deleteButton }) {
   // console.log(movie);
   // console.log(id);
   //conditional styling
@@ -74,6 +74,7 @@ export function Movie({ movie, id }) {
 
         <CardActions>
           <Counter />
+          {deleteButton}
         </CardActions>
       </CardContent>
     </Card>

@@ -1,13 +1,24 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { useState, useEffect } from 'react';
 
-export function MovieDetails({ movieList }) {
+export function MovieDetails() {
   // console.log(useParams());
-  const { movieid } = useParams(); //object destructuring
+  // const { movieid } = useParams(); //object destructuring
   // console.log(movieid);
   // console.log(movieList[movieid]);
-  const movie = movieList[movieid];
+  // const movie = movieList[movieid];
+  const [movie, setMovie] = useState({});
+  const getMovies = () => {
+    fetch('https://62a97468ec36bf40bdb7b7fa.mockapi.io/movies', {
+      method: 'GET',
+    })
+      .then(data => data.json())
+      .then(mv => setMovie(mv));
+  };
+
+  useEffect(() => getMovies(), []);
   const styles = {
     color: movie.rating > 8 ? 'green' : 'red',
   };

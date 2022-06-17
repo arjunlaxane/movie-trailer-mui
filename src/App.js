@@ -158,10 +158,16 @@ function App() {
           <section className="route-container">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route
+              {/* <Route
                 path="/movie/:movieid"
                 element={<MovieDetails movieList={movieList} />} //prop
+              /> */}
+
+              <Route
+                path="/movie/:movieid"
+                element={<MovieDetails />} //prop
               />
+
               <Route
                 path="movie/add-movie"
                 element={
@@ -172,7 +178,7 @@ function App() {
               <Route path="/color-game" element={<AddColor />} />
 
               <Route path="/tic-tac-toe" element={<TicTacToe />} />
-
+              {/* 
               <Route
                 path="/movie"
                 element={
@@ -181,7 +187,9 @@ function App() {
                     setMovieList={setMovieList}
                   />
                 }
-              />
+              /> */}
+
+              <Route path="/movie" element={<MovieList />} />
 
               {/* * mtches any path */}
               <Route path="/404" element={<NotFound />} />
