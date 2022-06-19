@@ -154,7 +154,6 @@ function App() {
           {/* </li> */}
           {/* </ul> */}
           {/* </nav> */}
-
           <section className="route-container">
             <Routes>
               <Route path="/" element={<Home />} />

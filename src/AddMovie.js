@@ -8,6 +8,13 @@ export default function AddMovie({ movieList, setMovieList }) {
   const [rating, setRating] = useState('');
   const [summary, setSummary] = useState('');
 
+  fetch('https://62a97468ec36bf40bdb7b7fa.mockapi.io/movies', {
+    method: 'POST',
+    headers: { 'Content-type': 'application/json;charset=UTF-8' },
+  })
+    .then(data => data.json())
+    .then(m => console.log(m));
+
   const AddMovies = () => {
     const newMovie = {
       name: name,
