@@ -11,7 +11,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import AddMovie from './AddMovie';
 import EditMovie from './EditMovie';
-
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { TicTacToe } from './TicTacToe';
@@ -176,7 +175,6 @@ function App() {
                   <AddMovie />
                 } //prop
               />
-              {/* this : makes id a variable......if u didn't give : then it will try to match word exactly as id */}
               <Route path="/color-game" element={<AddColor />} />
 
               <Route path="/tic-tac-toe" element={<TicTacToe />} />

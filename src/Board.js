@@ -23,7 +23,7 @@ export function Board() {
       [0, 4, 8],
       [2, 4, 6],
     ];
-    // console.log(lines.length);
+    // console.log(lines.length);//8
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
 
@@ -47,6 +47,7 @@ export function Board() {
     //if no winner && if its untouch then update
     if (!winner && !board[index]) {
       const boardCopy = [...board];
+      console.log(boardCopy);
       // boardCopy[index] = 'X';
       boardCopy[index] = isXTurn ? '🦍' : '🐒';
       setIsXTurn(!isXTurn);

@@ -17,12 +17,15 @@ export function AddColor() {
     <div>
       <input
         value={color}
-        onChange={event => setColor(event.target.value)}
+        onChange={event => setColor(event.target.value)} //event--object--SyntheticBaseEvent
         style={styles}
       />
+
       <button
         onClick={() => {
+          // console.log([...colorList, color]);
           setColorList([...colorList, color]);
+
           // we r copying colorList---immutability...lets developer sleep
         }}
       >

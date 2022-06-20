@@ -19,7 +19,7 @@ export default function EditMovie() {
   };
 
   useEffect(() => getMovies(), []);
-
+  //we did conditional rendering as it was giving empty object so undefined value as ine 27-31
   return movie ? <EditMovieForm movie={movie} /> : 'Loading...';
 }
 
@@ -30,7 +30,7 @@ function EditMovieForm({ movie }) {
   const [summary, setSummary] = useState(movie.summary);
   const [trailer, setTrailer] = useState(movie.trailer);
 
-  //here all objects are undefined as it is empty object----time lag to load movie.name and same for all
+  //here all objects are undefined as it is empty object----time lag to load movie.name and same for rest of all
 
   const navigate = useNavigate();
   //add movie -create-POST Method

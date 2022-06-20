@@ -27,13 +27,15 @@ export default function AddMovie() {
     //1.Method
     //2.body-data and JSON
     //3.Header-JSON
+
     fetch('https://62a97468ec36bf40bdb7b7fa.mockapi.io/movies', {
       method: 'POST',
       body: JSON.stringify(newMovie),
       headers: { 'Content-type': 'application/json' },
-      // }).then(data => data.json());
-    }).then(() => navigate('/movie'));
-
+    })
+      // .then(data => console.log(data.json()))//promise
+      .then(() => navigate('/movie'));
+    console.log(JSON.stringify(newMovie));
     console.log(newMovie);
   };
 

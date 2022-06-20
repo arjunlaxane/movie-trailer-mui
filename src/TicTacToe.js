@@ -1,6 +1,6 @@
 import { Board } from './Board';
 
-export function TicTacToe({ val }) {
+export function TicTacToe() {
   return (
     <div className="heading-container">
       <div className="tic-tac-toe-title">Gorilla 🦍💪🐒 Monkey Fight</div>
