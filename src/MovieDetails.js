@@ -5,13 +5,13 @@ import { useState, useEffect } from 'react';
 
 export function MovieDetails() {
   // console.log(useParams());
-  // const { movieid } = useParams(); //object destructuring
-  // console.log(movieid);
+  const { movieid } = useParams(); //object destructuring
+  console.log(movieid);
   // console.log(movieList[movieid]);
   // const movie = movieList[movieid];
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState({}); //it is object and not array
   const getMovies = () => {
-    fetch('https://62a97468ec36bf40bdb7b7fa.mockapi.io/movies', {
+    fetch(`https://62a97468ec36bf40bdb7b7fa.mockapi.io/movies/${movieid}`, {
       method: 'GET',
     })
       .then(data => data.json())

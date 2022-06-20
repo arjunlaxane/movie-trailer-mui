@@ -10,6 +10,8 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import AddMovie from './AddMovie';
+import EditMovie from './EditMovie';
+
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { TicTacToe } from './TicTacToe';
@@ -170,7 +172,8 @@ function App() {
               <Route
                 path="movie/add-movie"
                 element={
-                  <AddMovie movieList={movieList} setMovieList={setMovieList} />
+                  // <AddMovie movieList={movieList} setMovieList={setMovieList} />
+                  <AddMovie />
                 } //prop
               />
               {/* this : makes id a variable......if u didn't give : then it will try to match word exactly as id */}
@@ -189,8 +192,9 @@ function App() {
               /> */}
 
               <Route path="/movie" element={<MovieList />} />
+              <Route path="/movie/edit/:id" element={<EditMovie />} />
 
-              {/* * mtches any path */}
+              {/* * matches any path */}
               <Route path="/404" element={<NotFound />} />
 
               {/* old to new route */}

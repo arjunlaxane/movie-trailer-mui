@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Movie } from './Movie';
 
 //------------------------ function movie---------------------------
@@ -20,24 +21,37 @@ export function MovieList() {
   const deleteMovie = id => {
     fetch(`https://62a97468ec36bf40bdb7b7fa.mockapi.io/movies/${id}`, {
       method: 'DELETE',
-    }).then(() => getMovies());
+    }).then(() => getMovies()); //this avoid race condition
+    //promise has to handle by .then to fetch data
+    // getMovies();//this creates race condition
   };
 
+  const navigate = useNavigate();
   return (
     <div>
       <div className="movie-list">
-        {movieList.map((movie, index) => (
+        {movieList.map(movie => (
           <Movie
             key={movie.id}
             movie={movie}
             id={movie.id}
+            //passing JSX as props
             deleteButton={
               <button
                 onClick={() => {
                   deleteMovie(movie.id);
                 }}
               >
-                Delete me
+                Delete
+              </button>
+            }
+            editButton={
+              <button
+                onClick={() => {
+                  navigate(`/movie/edit/${movie.id}`);
+                }}
+              >
+                Edit
               </button>
             }
           />
