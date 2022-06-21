@@ -1,3 +1,4 @@
+import { BasicForm } from './BasicForm';
 import Paper from '@mui/material/Paper';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { useState } from 'react';
@@ -191,6 +192,7 @@ function App() {
 
               <Route path="/movie" element={<MovieList />} />
               <Route path="/movie/edit/:id" element={<EditMovie />} />
+              <Route path="/basic-form" element={<BasicForm />} />
 
               {/* * matches any path */}
               <Route path="/404" element={<NotFound />} />
