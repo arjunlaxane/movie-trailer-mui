@@ -2,7 +2,6 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
@@ -71,7 +70,7 @@ export default function AddMovie() {
     //2.body-data and JSON
     //3.Header-JSON
 
-    fetch('https://62a97468ec36bf40bdb7b7fa.mockapi.io/movies', {
+    fetch('${AP}/movies', {
       method: 'POST',
       body: JSON.stringify(newMovie),
       headers: { 'Content-type': 'application/json' },

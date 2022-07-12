@@ -2,6 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useState, useEffect } from 'react';
+import { API } from './global';
 
 export function MovieDetails() {
   // console.log(useParams());
@@ -12,7 +13,7 @@ export function MovieDetails() {
   const [movie, setMovie] = useState({}); //it is object and not array
   const getMovies = () => {
     //fetch returns promise--Response--here data is promise--now we will do data.json()---data.json() returns promise state---mv will give object we r looking
-    fetch(`https://62a97468ec36bf40bdb7b7fa.mockapi.io/movies/${movieid}`, {
+    fetch(`${API}/movies/${movieid}`, {
       method: 'GET',
     })
       .then(data => data.json())

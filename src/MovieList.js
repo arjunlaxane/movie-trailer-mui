@@ -4,14 +4,15 @@ import { Movie } from './Movie';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
+import { API } from './global';
 //------------------------ function movie---------------------------
 export function MovieList() {
-  // fetch('https://62a97468ec36bf40bdb7b7fa.mockapi.io/movies')
+  // fetch('${API}/movies')
   //   .then(data => data.json())
   //   .then(mvs => console.log(mvs));
   const [movieList, setMovieList] = useState([]);
   const getMovies = () => {
-    fetch('https://62a97468ec36bf40bdb7b7fa.mockapi.io/movies', {
+    fetch(`${API}/movies`, {
       method: 'GET',
     })
       .then(data => data.json())
@@ -21,7 +22,7 @@ export function MovieList() {
   useEffect(() => getMovies(), []);
 
   const deleteMovie = id => {
-    fetch(`https://62a97468ec36bf40bdb7b7fa.mockapi.io/movies/${id}`, {
+    fetch(`${API}/movies/${id}`, {
       method: 'DELETE',
     }).then(() => getMovies()); //this avoid race condition
     //promise has to handle by .then to fetch data

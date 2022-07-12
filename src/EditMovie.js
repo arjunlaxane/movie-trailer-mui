@@ -2,6 +2,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { API } from './global';
 
 export default function EditMovie() {
   const { id } = useParams(); //object destructuring
@@ -10,7 +11,7 @@ export default function EditMovie() {
   // const movie = movieList[movieid];
   const [movie, setMovie] = useState(null); //it is object and not array
   const getMovies = () => {
-    fetch(`https://62a97468ec36bf40bdb7b7fa.mockapi.io/movies/${id}`, {
+    fetch(`${API}/movies/${id}`, {
       method: 'GET',
     })
       .then(data => data.json())
@@ -50,7 +51,7 @@ function EditMovieForm({ movie }) {
     //1.Method
     //2.body-data and JSON
     //3.Header-JSON
-    fetch(`https://62a97468ec36bf40bdb7b7fa.mockapi.io/movies/${movie.id}`, {
+    fetch(`${API}/movies/${movie.id}`, {
       method: 'PUT',
       body: JSON.stringify(updatedMovie),
       headers: { 'Content-type': 'application/json' },
