@@ -35,16 +35,16 @@ export function MovieList() {
       <div className="movie-list">
         {movieList.map(movie => (
           <Movie
-            key={movie.id}
+            key={movie._id}
             movie={movie}
-            id={movie.id}
+            id={movie._id}
             //passing JSX as props
             deleteButton={
               <IconButton
                 style={{ marginLeft: 'auto' }}
                 color="error"
                 onClick={() => {
-                  deleteMovie(movie.id);
+                  deleteMovie(movie._id);
                 }}
                 aria-label="movie details"
               >
@@ -55,7 +55,7 @@ export function MovieList() {
               <IconButton
                 color="primary"
                 onClick={() => {
-                  navigate(`/movie/edit/${movie.id}`);
+                  navigate(`/movie/edit/${movie._id}`);
                 }}
                 aria-label="movie details"
               >
