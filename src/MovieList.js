@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Movie } from './Movie';
-
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+import EditIcon from '@mui/icons-material/Edit';
 //------------------------ function movie---------------------------
 export function MovieList() {
   // fetch('https://62a97468ec36bf40bdb7b7fa.mockapi.io/movies')
@@ -37,22 +39,27 @@ export function MovieList() {
             id={movie.id}
             //passing JSX as props
             deleteButton={
-              <button
+              <IconButton
+                style={{ marginLeft: 'auto' }}
+                color="error"
                 onClick={() => {
                   deleteMovie(movie.id);
                 }}
+                aria-label="movie details"
               >
-                Delete
-              </button>
+                <DeleteIcon />
+              </IconButton>
             }
             editButton={
-              <button
+              <IconButton
+                color="primary"
                 onClick={() => {
                   navigate(`/movie/edit/${movie.id}`);
                 }}
+                aria-label="movie details"
               >
-                Edit
-              </button>
+                <EditIcon />
+              </IconButton>
             }
           />
         ))}

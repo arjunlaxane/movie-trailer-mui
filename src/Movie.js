@@ -74,7 +74,8 @@ export function Movie({ movie, id, deleteButton, editButton }) {
 
         <CardActions>
           <Counter />
-          {editButton} {deleteButton}
+          {deleteButton}
+          {editButton}
         </CardActions>
       </CardContent>
     </Card>

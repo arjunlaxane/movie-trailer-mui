@@ -94,9 +94,10 @@ export default function AddMovie() {
         id="standard-basic"
         label="Name"
         variant="standard"
+        error={touched.name && errors.name}
+        // helperText={touched.name && errors.name ? 'Incorrect entry.' : ''}
+        helperText={touched.name && errors.name ? errors.name : ''}
       />
-
-      {touched.name && errors.name ? errors.name : ''}
 
       {/* <input
         onChange={event => {
@@ -115,9 +116,9 @@ export default function AddMovie() {
         id="standard-basic"
         label="Poster"
         variant="standard"
+        error={touched.poster && errors.poster}
+        helperText={touched.poster && errors.poster ? errors.poster : ''}
       />
-
-      {touched.poster && errors.poster ? errors.poster : ''}
 
       <TextField
         // onChange={event => {
@@ -130,9 +131,9 @@ export default function AddMovie() {
         id="standard-basic"
         label="Rating"
         variant="standard"
+        error={touched.rating && errors.rating}
+        helperText={touched.rating && errors.rating ? errors.rating : ''}
       />
-
-      {touched.rating && errors.rating ? errors.rating : ''}
 
       <TextField
         // onChange={event => {
@@ -145,9 +146,10 @@ export default function AddMovie() {
         id="standard-basic"
         label="Summary"
         variant="standard"
+        error={touched.summary && errors.summary}
+        helperText={touched.summary && errors.summary ? errors.summary : ''}
       />
 
-      {touched.summary && errors.summary ? errors.summary : ''}
       <TextField
         // onChange={event => {
         //   setTrailer(event.target.value);
@@ -159,9 +161,10 @@ export default function AddMovie() {
         id="standard-basic"
         label="Trailer"
         variant="standard"
+        error={touched.trailer && errors.trailer}
+        helperText={touched.trailer && errors.trailer ? errors.trailer : ''}
       />
 
-      {touched.trailer && errors.trailer ? errors.trailer : ''}
       {/* <p>name:{name}</p> */}
       {/* <p>poster:{poster}</p> */}
       {/* <p>rating:{rating}</p> */}

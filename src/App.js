@@ -131,6 +131,7 @@ function App() {
                 TIC-TAC-TOE
               </Button>
               <Button
+                style={{ marginLeft: 'auto' }}
                 onClick={() => setMode(mode === 'light' ? 'dark' : 'light')}
                 color="inherit"
                 startIcon={
