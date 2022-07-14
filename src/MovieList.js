@@ -54,7 +54,7 @@ export function MovieList() {
               <IconButton
                 color="primary"
                 onClick={() => {
-                  navigate(`/movies/${movie._id}`); //deleted edit--finalchange
+                  navigate(`/movies/edit/${movie._id}`);
                 }}
                 aria-label="movie details"
               >
