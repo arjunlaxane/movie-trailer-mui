@@ -70,7 +70,7 @@ export default function AddMovie() {
     //2.body-data and JSON
     //3.Header-JSON
 
-    fetch('${AP}/movies', {
+    fetch('${API}/movies', {
       method: 'POST',
       body: JSON.stringify(newMovie),
       headers: { 'Content-type': 'application/json' },
