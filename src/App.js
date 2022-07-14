@@ -1,3 +1,4 @@
+import React from 'react';
 import { BasicForm } from './BasicForm';
 import Paper from '@mui/material/Paper';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -89,6 +90,7 @@ function App() {
       trailer: 'https://www.youtube.com/embed/NgsQ8mVkN8w',
     },
   ];
+
   const [movieList, setMovieList] = useState(initial_Movie_List);
   const navigate = useNavigate();
   const [mode, setMode] = useState('dark');
@@ -110,13 +112,13 @@ function App() {
               </Button>
               {/* </Toolbar> */}
               {/* <Toolbar> */}
-              <Button onClick={() => navigate('/movie')} color="inherit">
+              <Button onClick={() => navigate('/movies')} color="inherit">
                 Movies
               </Button>
               {/* </Toolbar> */}
               {/* <Toolbar> */}
               <Button
-                onClick={() => navigate('movie/add-movie')}
+                onClick={() => navigate('movies/add-movie')}
                 color="inherit"
               >
                 ADD MOVIE
@@ -166,12 +168,12 @@ function App() {
               /> */}
 
               <Route
-                path="/movie/:movieid"
+                path="/movies/:id"
                 element={<MovieDetails />} //prop
               />
 
               <Route
-                path="movie/add-movie"
+                path="movies/add-movie"
                 element={
                   // <AddMovie movieList={movieList} setMovieList={setMovieList} />
                   <AddMovie />
@@ -191,8 +193,8 @@ function App() {
                 }
               /> */}
 
-              <Route path="/movie" element={<MovieList />} />
-              <Route path="/movie/edit/:id" element={<EditMovie />} />
+              <Route path="/movies" element={<MovieList />} />
+              <Route path="/movies/edit/:id" element={<EditMovie />} />
               <Route path="/basic-form" element={<BasicForm />} />
 
               {/* * matches any path */}

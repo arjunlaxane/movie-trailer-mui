@@ -1,19 +1,19 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { API } from './global';
 
 export function MovieDetails() {
   // console.log(useParams());
-  const { movieid } = useParams(); //object destructuring
-  // console.log(movieid);
-  // console.log(movieList[movieid]);
-  // const movie = movieList[movieid];
+  const { id } = useParams(); //object destructuring
+  // console.log(id);
+  // console.log(movieList[id]);
+  // const movie = movieList[id];
   const [movie, setMovie] = useState({}); //it is object and not array
   const getMovies = () => {
     //fetch returns promise--Response--here data is promise--now we will do data.json()---data.json() returns promise state---mv will give object we r looking
-    fetch(`${API}/movies/${movieid}`, {
+    fetch(`${API}/movies/${id}`, {
       method: 'GET',
     })
       .then(data => data.json())

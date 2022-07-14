@@ -1,6 +1,5 @@
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-// import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
@@ -71,13 +70,13 @@ export default function AddMovie() {
     //2.body-data and JSON
     //3.Header-JSON
 
-    fetch('${API}/movies', {
+    fetch(`${API}/movies`, {
       method: 'POST',
       body: JSON.stringify(newMovie),
       headers: { 'Content-type': 'application/json' },
     })
       // .then(data => console.log(data.json()))//promise
-      .then(() => navigate('/movie'));
+      .then(() => navigate('/movies'));
     console.log(JSON.stringify(newMovie));
     console.log(newMovie);
   };

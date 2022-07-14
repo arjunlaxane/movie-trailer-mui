@@ -19,8 +19,6 @@ export function MovieList() {
       .then(mvs => setMovieList(mvs));
   };
 
-  useEffect(() => getMovies(), []);
-
   const deleteMovie = id => {
     fetch(`${API}/movies/${id}`, {
       method: 'DELETE',
@@ -28,6 +26,7 @@ export function MovieList() {
     //promise has to handle by .then to fetch data
     // getMovies();//this creates race condition
   };
+  useEffect(() => getMovies(), []);
 
   const navigate = useNavigate();
   return (

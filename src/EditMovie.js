@@ -51,7 +51,7 @@ function EditMovieForm({ movie }) {
     //1.Method
     //2.body-data and JSON
     //3.Header-JSON
-    fetch(`${API}/movies/${movie.id}`, {
+    fetch(`${API}/movies/${movie._id}`, {
       method: 'PUT',
       body: JSON.stringify(updatedMovie),
       headers: { 'Content-type': 'application/json' },
