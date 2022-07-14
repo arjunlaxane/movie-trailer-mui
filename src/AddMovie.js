@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { API } from './global';
 
 const movieValidationSchema = yup.object({
   name: yup.string().required('Why not fill this name?'),
