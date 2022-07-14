@@ -201,7 +201,10 @@ function App() {
               <Route path="/404" element={<NotFound />} />
 
               {/* old to new route */}
-              <Route path="/films" element={<Navigate replace to="/movie" />} />
+              <Route
+                path="/films"
+                element={<Navigate replace to="/movies" />}
+              />
               <Route path="*" element={<Navigate replace to="/404" />} />
             </Routes>
           </section>
