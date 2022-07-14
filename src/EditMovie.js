@@ -7,9 +7,8 @@ import { API } from './global';
 export default function EditMovie() {
   const { id } = useParams(); //object destructuring
   console.log(id);
-  // console.log(movieList[id]);
-  // const movie = movieList[id];
   const [movie, setMovie] = useState(null); //it is object and not array
+
   const getMovies = () => {
     fetch(`${API}/movies/${id}`, {
       method: 'GET',
@@ -67,7 +66,6 @@ function EditMovieForm({ movie }) {
         onChange={event => {
           setName(event.target.value);
         }}
-        id="standard-basic"
         label="Name"
         variant="standard"
       />
@@ -83,7 +81,6 @@ function EditMovieForm({ movie }) {
         onChange={event => {
           setPoster(event.target.value);
         }}
-        id="standard-basic"
         label="Poster"
         variant="standard"
       />
@@ -93,7 +90,6 @@ function EditMovieForm({ movie }) {
         onChange={event => {
           setRating(event.target.value);
         }}
-        id="standard-basic"
         label="Rating"
         variant="standard"
       />
@@ -103,7 +99,6 @@ function EditMovieForm({ movie }) {
         onChange={event => {
           setSummary(event.target.value);
         }}
-        id="standard-basic"
         label="Summary"
         variant="standard"
       />
@@ -113,7 +108,6 @@ function EditMovieForm({ movie }) {
         onChange={event => {
           setTrailer(event.target.value);
         }}
-        id="standard-basic"
         label="Trailer"
         variant="standard"
       />
