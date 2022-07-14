@@ -10,7 +10,7 @@ export default function EditMovie() {
   const [movie, setMovie] = useState(null); //it is object and not array
 
   const getMovies = () => {
-    fetch(`${API}/movies/${id}`, {
+    fetch(`${API}/movies/edit/${id}`, {
       method: 'GET',
     })
       .then(data => data.json())
