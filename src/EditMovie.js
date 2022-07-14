@@ -7,8 +7,8 @@ import { API } from './global';
 export default function EditMovie() {
   const { id } = useParams(); //object destructuring
   console.log(id);
-  // console.log(movieList[movieid]);
-  // const movie = movieList[movieid];
+  // console.log(movieList[id]);
+  // const movie = movieList[id];
   const [movie, setMovie] = useState(null); //it is object and not array
   const getMovies = () => {
     fetch(`${API}/movies/${id}`, {
@@ -20,7 +20,7 @@ export default function EditMovie() {
   };
 
   useEffect(() => getMovies(), []);
-  //we did conditional rendering as it was giving empty object so undefined value as ine 27-31
+  //we did conditional <re></re>ndering as it was giving empty object so undefined value as ine 27-31
   return movie ? <EditMovieForm movie={movie} /> : 'Loading...';
 }
 
@@ -34,7 +34,7 @@ function EditMovieForm({ movie }) {
   //here all objects are undefined as it is empty object----time lag to load movie.name and same for rest of all
 
   const navigate = useNavigate();
-  //add movie -create-POST Method
+  //add movie -create -POST Method
 
   const editMovies = () => {
     const updatedMovie = {
@@ -44,8 +44,6 @@ function EditMovieForm({ movie }) {
       summary: summary,
       trailer: trailer,
     };
-
-    // setMovieList([...movieList, updatedMovie]);
 
     //PUT
     //1.Method
