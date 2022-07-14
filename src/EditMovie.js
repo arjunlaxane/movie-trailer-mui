@@ -56,7 +56,7 @@ function EditMovieForm({ movie }) {
       body: JSON.stringify(updatedMovie),
       headers: { 'Content-type': 'application/json' },
       // }).then(data => data.json());
-    }).then(() => navigate('/movie'));
+    }).then(() => navigate('/movies'));
 
     console.log(updatedMovie);
   };
