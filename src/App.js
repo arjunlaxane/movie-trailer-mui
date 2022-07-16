@@ -215,7 +215,7 @@ function App() {
 }
 
 function Home() {
-  return <h1>Welcome to react router dom</h1>;
+  return <h1>Welcome to Movies App</h1>;
 }
 
 function NotFound() {
